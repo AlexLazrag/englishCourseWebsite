@@ -35,6 +35,12 @@ public class User {
     @Pattern(regexp = "^(\\+|00)[0-9\\-]{10,15}$")
     private String phoneNumber;
 
-
+    @Column(name = "password", nullable = false)
+    @NotEmpty(message = "Please enter your password")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).*$")
     private String password;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_role_id")
+    private UserRole userRole;
 }
