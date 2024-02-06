@@ -29,7 +29,7 @@ public class CourseBooking {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "course_id", nullable = false)
-    @NotNull(message = "YOu need to select a course.")
+    @NotNull(message = "You need to select a course.")
     private Course course;
 
     @ManyToOne(fetch = FetchType.EAGER)
