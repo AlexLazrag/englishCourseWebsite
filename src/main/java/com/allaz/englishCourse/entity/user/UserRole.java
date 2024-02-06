@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
+@Table(name = "user_roles")
 @Getter
 @Setter
 @NoArgsConstructor

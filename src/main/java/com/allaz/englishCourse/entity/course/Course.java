@@ -1,11 +1,15 @@
 package com.allaz.englishCourse.entity.course;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
+@Table(name = "courses")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,4 +37,9 @@ public class Course {
     @Enumerated(EnumType.STRING)
     @NotNull
     private CourseType courseType;
+
+    @Column(name = "course_bookings")
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+    @JsonBackReference
+    private Set<CourseBooking> courseBookings;
 }
