@@ -3,6 +3,10 @@ package com.allaz.englishCourse.entity.user;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Builder
@@ -43,4 +47,11 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_role_id")
     private UserRole userRole;
+
+    @CreatedDate
+    @Column(name = "created_date", nullable = false)
+    @NotNull(message = "Enter valid date")
+    @Builder.Default
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private final LocalDateTime createdDate = LocalDateTime.now();
 }
