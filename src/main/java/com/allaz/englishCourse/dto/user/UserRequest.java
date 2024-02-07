@@ -28,9 +28,6 @@ public class UserRequest {
     @Length(min = 8, message = "Password should contain at least 8 characters.")
     private String password;
 
-    @NotBlank
-    private String phoneNumber;
-
     private UserRole userRole;
 
 }
