@@ -29,10 +29,6 @@ public class Course {
     @NotNull(message = "Course should have a price.")
     private Double price;
 
-    @Column(name = "course_level", nullable = false)
-    @NotNull(message = "Course should have difficulty level.")
-    private String level;
-
     @Column(name = "course_type")
     @Enumerated(EnumType.STRING)
     @NotNull
