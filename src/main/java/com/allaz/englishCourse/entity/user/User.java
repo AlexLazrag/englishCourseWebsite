@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "users")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,10 +35,6 @@ public class User {
     @NotBlank(message = "Enter a valid email")
     @Email
     private String email;
-
-    @Column(name = "phone_number", nullable = false)
-    @Pattern(regexp = "^(\\+|00)[0-9\\-]{10,15}$")
-    private String phoneNumber;
 
     @Column(name = "password", nullable = false)
     @NotEmpty(message = "Please enter your password")
